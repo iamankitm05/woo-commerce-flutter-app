@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:woo_commerce/shopping/screens/home_screen.dart';
+import 'package:woo_commerce/presentation/dashboard/home_screen.dart';
+import 'package:woo_commerce/utils/constants/app_colors.dart';
 
 void main() {
   runApp(const WooCommerceApp());
@@ -14,10 +15,11 @@ class WooCommerceApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Woo commerce',
       theme: ThemeData(
+        fontFamily: 'Inter',
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.white,
-          background: const Color(0xFFF7FAFC),
-          primary: const Color(0xff0d6efd),
+          seedColor: AppColor.primary,
+          background: AppColor.backgroundColor,
+          primary: AppColor.primary,
         ),
       ),
       home: const HomeScreen(),

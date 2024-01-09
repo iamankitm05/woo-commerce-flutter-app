@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:woo_commerce/data/products.dart';
 import 'package:woo_commerce/shopping/screens/item_details_screen.dart';
 import 'package:woo_commerce/shopping/widgets/custom_header.dart';
 import 'package:woo_commerce/shopping/widgets/horizontal_scroll_item_list.dart';
@@ -132,33 +131,33 @@ class ItemListScreen extends StatelessWidget {
             ),
 
             /// Items List
-            ListView.builder(
-                itemCount: products.length,
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                itemBuilder: (context, index) => InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (builder) => const ItemDetailsScreen(),
-                          ),
-                        );
-                      },
-                      child: _buildProductCard(
-                        productName: products[index]['name']!,
-                        price: products[index]['price']!,
-                        imageUrl: products[index]['imageUrl']!,
-                        rating: products[index]['rating']!,
-                      ),
-                    )),
+            // ListView.builder(
+            //     itemCount: 0,
+            //     shrinkWrap: true,
+            //     physics: const NeverScrollableScrollPhysics(),
+            //     padding: const EdgeInsets.symmetric(horizontal: 12),
+            //     itemBuilder: (context, index) => InkWell(
+            //           onTap: () {
+            //             Navigator.push(
+            //               context,
+            //               MaterialPageRoute(
+            //                 builder: (builder) => const ItemDetailsScreen(),
+            //               ),
+            //             );
+            //           },
+            //           child: _buildProductCard(
+            //             productName: products[index]['name']!,
+            //             price: products[index]['price']!,
+            //             imageUrl: products[index]['imageUrl']!,
+            //             rating: products[index]['rating']!,
+            //           ),
+            //         )),
 
             /// Recommended items
-            const HorizontalScrollItemList(
-              title: 'You may also like',
-              products: products,
-            ),
+            // const HorizontalScrollItemList(
+            //   title: 'You may also like',
+            //   products: products,
+            // ),
 
             const SizedBox(height: 50),
           ],

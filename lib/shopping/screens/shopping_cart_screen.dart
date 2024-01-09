@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:woo_commerce/data/products.dart';
 
 class ShoppingCartScreen extends StatelessWidget {
   const ShoppingCartScreen({super.key});
@@ -84,18 +83,18 @@ class ShoppingCartScreen extends StatelessWidget {
               ),
             ),
           ),
-          ListView.builder(
-            itemCount: products.length,
-            shrinkWrap: true,
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            physics: const NeverScrollableScrollPhysics(),
-            itemBuilder: (context, index) {
-              return _buildSavedForLaterItemCard(
-                  productName: products[index]['name'],
-                  price: products[index]['price'],
-                  imageUrl: products[index]['imageUrl']);
-            },
-          )
+          // ListView.builder(
+          //   itemCount: products.length,
+          //   shrinkWrap: true,
+          //   padding: const EdgeInsets.symmetric(horizontal: 8),
+          //   physics: const NeverScrollableScrollPhysics(),
+          //   itemBuilder: (context, index) {
+          //     return _buildSavedForLaterItemCard(
+          //         productName: products[index]['name'],
+          //         price: products[index]['price'],
+          //         imageUrl: products[index]['imageUrl']);
+          //   },
+          // )
         ],
       ),
     );

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:woo_commerce/data/products.dart';
 import 'package:woo_commerce/shopping/screens/shopping_cart_screen.dart';
 import 'package:woo_commerce/shopping/widgets/custom_header.dart';
 import 'package:woo_commerce/shopping/widgets/horizontal_scroll_item_list.dart';
@@ -301,11 +300,11 @@ class ItemDetailsScreen extends StatelessWidget {
               ],
             ),
           ),
-          const HorizontalScrollItemList(
-            title: 'Similar products',
-            products: products,
-          ),
-          const SizedBox(height: 100),
+          // const HorizontalScrollItemList(
+          //   title: 'Similar products',
+          //   products: products,
+          // ),
+          // const SizedBox(height: 100),
         ],
       ),
     );
