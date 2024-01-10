@@ -1,0 +1,163 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:woo_commerce/core/components/form_controls/custom_search.dart';
+import 'package:woo_commerce/core/components/categories_tab_list/categories_tab_list.dart';
+import 'package:woo_commerce/core/components/custom_app_bar/custom_app_bar.dart';
+import 'package:woo_commerce/presentation/products_listing/widgets/custom_icon_button.dart';
+import 'package:woo_commerce/presentation/products_listing/widgets/tag_button.dart';
+import 'package:woo_commerce/shopping/widgets/item_rating.dart';
+import 'package:woo_commerce/utils/constants/app_colors.dart';
+import 'package:woo_commerce/utils/constants/app_style.dart';
+
+class ItemsListScreen extends StatelessWidget {
+  const ItemsListScreen({super.key});
+
+  static const topNavItems = <String>[
+    'Tablets',
+    'Phones',
+    'Ipads',
+    'Ipod',
+    'Jackaets',
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: const CustomAppBar(
+        title: Text(
+          'Mobile accessory ',
+          style: AppStyle.titleTextStyle,
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              color: Colors.white,
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: const Column(
+                children: [
+                  CustomSearch(),
+                  SizedBox(height: 12),
+                  CategoriesTabList(categories: topNavItems),
+                  SizedBox(height: 12),
+                ],
+              ),
+            ),
+            Container(
+              height: 50,
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                border: Border(
+                  top: BorderSide(color: AppColors.primaryBorderColor),
+                  bottom: BorderSide(color: AppColors.primaryBorderColor),
+                ),
+              ),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    const CustomIconButton(text: 'Sort: Newest', iconData: Icons.sort),
+                    const SizedBox(width: 4),
+                    const CustomIconButton(text: 'Filter (3)', iconData: Icons.filter_alt_outlined),
+                    const SizedBox(width: 4),
+                    Row(
+                      children: [
+                        Container(
+                          width: 30,
+                          height: 30,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: const Color(0xFFDEE2E7),
+                            ),
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(8),
+                              bottomLeft: Radius.circular(8),
+                            ),
+                          ),
+                          child: const Icon(
+                            Icons.window_sharp,
+                            color: Color(0xFF1C1C1C),
+                            size: 20,
+                          ),
+                        ),
+                        Container(
+                          width: 30,
+                          height: 30,
+                          decoration: BoxDecoration(
+                            color: const Color(0xFFEFF2F4),
+                            border: Border.all(
+                              color: const Color(0xFFDEE2E7),
+                            ),
+                            borderRadius: const BorderRadius.only(
+                              topRight: Radius.circular(8),
+                              bottomRight: Radius.circular(8),
+                            ),
+                          ),
+                          child: SvgPicture.asset(
+                            'assets/icons/listview.svg',
+                            fit: BoxFit.scaleDown,
+                            width: 20,
+                            height: 20,
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              height: 50,
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: const SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    TagButton(text: 'Huawei', iconData: Icons.clear),
+                    TagButton(text: 'Apple', iconData: Icons.clear),
+                    TagButton(text: '64GB', iconData: Icons.clear),
+                  ],
+                ),
+              ),
+            ),
+
+            /// Items List
+            // ListView.builder(
+            //     itemCount: 0,
+            //     shrinkWrap: true,
+            //     physics: const NeverScrollableScrollPhysics(),
+            //     padding: const EdgeInsets.symmetric(horizontal: 12),
+            //     itemBuilder: (context, index) => InkWell(
+            //           onTap: () {
+            //             Navigator.push(
+            //               context,
+            //               MaterialPageRoute(
+            //                 builder: (builder) => const ItemDetailsScreen(),
+            //               ),
+            //             );
+            //           },
+            //           child: _buildProductCard(
+            //             productName: products[index]['name']!,
+            //             price: products[index]['price']!,
+            //             imageUrl: products[index]['imageUrl']!,
+            //             rating: products[index]['rating']!,
+            //           ),
+            //         )),
+
+            /// Recommended items
+            // const HorizontalScrollItemList(
+            //   title: 'You may also like',
+            //   products: products,
+            // ),
+
+            const SizedBox(height: 50),
+          ],
+        ),
+      ),
+    );
+  }
+}

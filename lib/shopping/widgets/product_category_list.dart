@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:woo_commerce/shopping/screens/item_list_screen.dart';
+import 'package:woo_commerce/presentation/products_listing/items_list_screen.dart';
 
 class ProductCategoryList extends StatelessWidget {
   final List<String> productCategories;
@@ -22,7 +22,7 @@ class ProductCategoryList extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const ItemListScreen()));
+                    builder: (context) => const ItemsListScreen()));
               },
               style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.grey[200],

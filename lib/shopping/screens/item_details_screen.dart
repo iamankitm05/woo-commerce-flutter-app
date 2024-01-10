@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:woo_commerce/core/components/custom_app_bar/custom_app_bar.dart';
 import 'package:woo_commerce/shopping/screens/shopping_cart_screen.dart';
-import 'package:woo_commerce/shopping/widgets/custom_header.dart';
-import 'package:woo_commerce/shopping/widgets/horizontal_scroll_item_list.dart';
 import 'package:woo_commerce/shopping/widgets/item_rating.dart';
 
 class ItemDetailsScreen extends StatelessWidget {
@@ -11,7 +10,7 @@ class ItemDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomHeader(),
+      appBar: const CustomAppBar(),
       body: ListView(
         children: [
           Stack(

@@ -25,18 +25,11 @@ class CustomSideDrawer extends StatelessWidget {
     {'text': 'Privacy'},
   ];
 
-  static const List<String> topNavItems = <String>[
-    'All Category',
-    'Gadgets',
-    'Clocthes',
-    'Acceroies',
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Drawer(
       shape: const RoundedRectangleBorder(),
-      backgroundColor: AppColor.drawerBackgroundColor,
+      backgroundColor: AppColors.drawerBackgroundColor,
       elevation: 0,
       child: Column(
         children: [

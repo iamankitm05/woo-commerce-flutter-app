@@ -17,9 +17,9 @@ class WooCommerceApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Inter',
         colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColor.primary,
-          background: AppColor.backgroundColor,
-          primary: AppColor.primary,
+          seedColor: AppColors.primary,
+          background: AppColors.backgroundColor,
+          primary: AppColors.primary,
         ),
       ),
       home: const HomeScreen(),

@@ -10,7 +10,7 @@ class CustomDrawerHeader extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 150,
-      color: AppColor.drawerHeaderbackgroundColor,
+      color: AppColors.drawerHeaderbackgroundColor,
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

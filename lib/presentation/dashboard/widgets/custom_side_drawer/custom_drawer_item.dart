@@ -25,7 +25,7 @@ class CustomDrawerItem extends StatelessWidget {
       leading: iconData != null
           ? Icon(
               iconData,
-              color: AppColor.iconColor,
+              color: AppColors.iconColor,
               size: AppStyle.iconSize,
             )
           : const SizedBox(
