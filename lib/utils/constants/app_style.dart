@@ -4,7 +4,9 @@ import 'package:woo_commerce/utils/constants/app_colors.dart';
 class AppStyle {
   // icons
   static const double iconSize = 24;
-  static const double smallIconSize = 22;
+  static const double ratingStarIconSize = 16;
+  static const double mediumIconSize = 22;
+  static const double smallIconSize = 18;
 
   // font weights
   static const FontWeight buttonFontWeight = FontWeight.w500;

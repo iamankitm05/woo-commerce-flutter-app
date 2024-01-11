@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:woo_commerce/core/components/custom_rating_star/custom_rating_star.dart';
 import 'package:woo_commerce/core/components/form_controls/custom_search.dart';
 import 'package:woo_commerce/core/components/categories_tab_list/categories_tab_list.dart';
 import 'package:woo_commerce/core/components/custom_app_bar/custom_app_bar.dart';
+import 'package:woo_commerce/core/components/product_cards/product_card.dart';
+import 'package:woo_commerce/core/components/product_cards/product_card_inline.dart';
+import 'package:woo_commerce/data/dummy_products.dart';
+import 'package:woo_commerce/data/models/product_model.dart';
 import 'package:woo_commerce/presentation/products_listing/widgets/custom_icon_button.dart';
 import 'package:woo_commerce/presentation/products_listing/widgets/tag_button.dart';
-import 'package:woo_commerce/shopping/widgets/item_rating.dart';
+import 'package:woo_commerce/presentation/ordering/product_details_screen.dart';
 import 'package:woo_commerce/utils/constants/app_colors.dart';
 import 'package:woo_commerce/utils/constants/app_style.dart';
 
-class ItemsListScreen extends StatelessWidget {
-  const ItemsListScreen({super.key});
+class ProductsListScreen extends StatelessWidget {
+  const ProductsListScreen({super.key});
 
   static const topNavItems = <String>[
     'Tablets',
@@ -59,9 +64,12 @@ class ItemsListScreen extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    const CustomIconButton(text: 'Sort: Newest', iconData: Icons.sort),
+                    const CustomIconButton(
+                        text: 'Sort: Newest', iconData: Icons.sort),
                     const SizedBox(width: 4),
-                    const CustomIconButton(text: 'Filter (3)', iconData: Icons.filter_alt_outlined),
+                    const CustomIconButton(
+                        text: 'Filter (3)',
+                        iconData: Icons.filter_alt_outlined),
                     const SizedBox(width: 4),
                     Row(
                       children: [
@@ -125,34 +133,94 @@ class ItemsListScreen extends StatelessWidget {
               ),
             ),
 
-            /// Items List
-            // ListView.builder(
-            //     itemCount: 0,
-            //     shrinkWrap: true,
-            //     physics: const NeverScrollableScrollPhysics(),
-            //     padding: const EdgeInsets.symmetric(horizontal: 12),
-            //     itemBuilder: (context, index) => InkWell(
-            //           onTap: () {
-            //             Navigator.push(
-            //               context,
-            //               MaterialPageRoute(
-            //                 builder: (builder) => const ItemDetailsScreen(),
-            //               ),
-            //             );
-            //           },
-            //           child: _buildProductCard(
-            //             productName: products[index]['name']!,
-            //             price: products[index]['price']!,
-            //             imageUrl: products[index]['imageUrl']!,
-            //             rating: products[index]['rating']!,
-            //           ),
-            //         )),
+            // Items List
+            ListView.builder(
+              itemCount: dummyProducts.length,
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              itemBuilder: (context, index) {
+                final Product product = dummyProducts[index];
+                return InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (builder) => const ProductDetailsScreen(),
+                      ),
+                    );
+                  },
+                  child: ProductCardInline(
+                    productName: product.name,
+                    productPrice: product.price,
+                    productImageUrl: product.imageUrl,
+                    footer: [
+                      const SizedBox(height: 7),
+                      Row(
+                        children: [
+                          CustomRatingStar(
+                            rating: product.rating,
+                          ),
+                          const SizedBox(width: 8),
+                          const Icon(
+                            Icons.circle,
+                            size: 8,
+                            color: AppColors.notRatedStarIconColor,
+                          ),
+                          const SizedBox(width: 8),
+                          Text(
+                            '${product.totalOrders} orders',
+                            style: AppStyle.smallTextStyle.copyWith(
+                              color: AppColors.secondaryTextColor,
+                            ),
+                          )
+                        ],
+                      ),
+                      const SizedBox(height: 7),
+                      if (product.isShippingFree)
+                        Text(
+                          'Free Shipping',
+                          style: AppStyle.smallTextStyle.copyWith(
+                            color: AppColors.greenTextColor,
+                          ),
+                        )
+                    ],
+                  ),
+                );
+              },
+            ),
 
-            /// Recommended items
-            // const HorizontalScrollItemList(
-            //   title: 'You may also like',
-            //   products: products,
-            // ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: Column(
+                children: [
+                  const ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    title: Text(
+                      'You may also like',
+                      style: AppStyle.titleTextStyle,
+                    ),
+                  ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        ...dummyProducts
+                            .map((product) => Padding(
+                                  padding: const EdgeInsets.only(right: 8),
+                                  child: ProductCard(
+                                    productName: product.name,
+                                    productPrice: product.price,
+                                    productImageUrl: product.imageUrl,
+                                  ),
+                                ))
+                            .toList()
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
 
             const SizedBox(height: 50),
           ],

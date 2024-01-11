@@ -35,7 +35,7 @@ class TagButton extends StatelessWidget {
           const SizedBox(width: 9),
           Icon(
             iconData,
-            size: AppStyle.smallIconSize,
+            size: AppStyle.mediumIconSize,
             color: AppColors.iconColor,
           ),
         ],

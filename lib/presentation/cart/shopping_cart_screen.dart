@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:woo_commerce/core/components/custom_app_bar/custom_app_bar.dart';
+import 'package:woo_commerce/presentation/cart/widgets/cart_product_tile.dart';
+import 'package:woo_commerce/utils/constants/app_style.dart';
 
 class ShoppingCartScreen extends StatelessWidget {
   const ShoppingCartScreen({super.key});
@@ -6,29 +9,18 @@ class ShoppingCartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        shadowColor: const Color(0xFF1C1C1C).withOpacity(0.4),
-        backgroundColor: Colors.white,
-        elevation: 1,
-        title: const Text(
-          'Shopping cart ',
-          style: TextStyle(
-            color: Color(0xFF1C1C1C),
-            fontSize: 18,
-            fontWeight: FontWeight.w600,
-          ),
+      appBar: const CustomAppBar(
+        title: Text(
+          'Shopping cart',
+          style: AppStyle.titleTextStyle,
         ),
+        hideActions: true,
       ),
       body: ListView(
         children: [
-          _buildCartProductView(
-            productName: 'T-shirts with multiple colors for men',
-            productDetails: 'Size: medium, Color: blue, Seller: Artel Market',
-          ),
-          _buildCartProductView(
-            productName: 'T-shirts with multiple colors for men',
-            productDetails: 'Size: medium, Color: blue, Seller: Artel Market',
-          ),
+          const CartProductTile(),
+          const CartProductTile(),
+          const CartProductTile(),
           Container(
             padding: const EdgeInsets.all(16),
             decoration: const BoxDecoration(
@@ -222,126 +214,6 @@ class ShoppingCartScreen extends StatelessWidget {
           ),
         )
       ],
-    );
-  }
-
-  Widget _buildCartProductView(
-      {required String productName, required String productDetails}) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: const BoxDecoration(
-          color: Colors.white,
-          border: Border(bottom: BorderSide(color: Color(0xFFEFF2F4)))),
-      child: Column(
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Container(
-                width: 72,
-                padding: const EdgeInsets.all(4.5),
-                decoration: BoxDecoration(
-                    color: const Color(0xFFF7F7F7),
-                    border: Border.all(color: const Color(0xFFE0E0E0)),
-                    borderRadius: BorderRadius.circular(6)),
-                child: Image.asset(
-                  'assets/images/products/Bitmap.png',
-                ),
-              ),
-              const SizedBox(width: 8),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      productName,
-                      maxLines: 3,
-                      style: const TextStyle(
-                        color: Color(0xFF1C1C1C),
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    Text(
-                      productName,
-                      maxLines: 3,
-                      style: const TextStyle(
-                        color: Color(0xFF8B96A5),
-                        fontSize: 13,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(width: 8),
-              const Icon(Icons.more_vert),
-            ],
-          ),
-          const SizedBox(height: 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Container(
-                    width: 40,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(color: const Color(0xFFDEE2E7)),
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(6),
-                        bottomLeft: Radius.circular(6),
-                      ),
-                    ),
-                    child: const Icon(Icons.remove),
-                  ),
-                  Container(
-                    width: 70,
-                    height: 40,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(color: const Color(0xFFDEE2E7)),
-                    ),
-                    child: const Text(
-                      '1',
-                      style: TextStyle(
-                        color: Color(0xFF1C1C1C),
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    width: 40,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(color: const Color(0xFFDEE2E7)),
-                      borderRadius: const BorderRadius.only(
-                        topRight: Radius.circular(6),
-                        bottomRight: Radius.circular(6),
-                      ),
-                    ),
-                    child: const Icon(Icons.add),
-                  ),
-                ],
-              ),
-              const Text(
-                '\$78.99',
-                style: TextStyle(
-                  color: Color(0xFF1C1C1C),
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
-              )
-            ],
-          )
-        ],
-      ),
     );
   }
 }

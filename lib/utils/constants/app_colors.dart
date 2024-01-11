@@ -4,15 +4,21 @@ class AppColors {
   static const Color primary = Color(0xFF0D6EFD);
   static const Color secondary = Color(0xFF505050);
   static const Color dark = Color(0xFF1C1C1C);
+  static const Color white = Colors.white;
 
   // texts
   static const Color primaryTextColor = dark;
   static const Color secondaryTextColor = Color(0xFF8B96A5);
+  static const Color redTextColor = Color(0xFFFA3434);
   static const Color subTitleTextColor = Color(0xFF505050);
   static const Color mutedTextColor = Color(0xFF8B96A5);
+  static const Color greenTextColor = Color(0xFF00B517);
+  static const Color whiteTextColor = Colors.white;
 
   // icons
   static const Color iconColor = Color(0xFF8B96A5);
+  static const Color ratedStarIconColor = Color(0xFFFF9017);
+  static const Color notRatedStarIconColor = Color(0xFFD4CDC5);
   
   static const Color backgroundColor = Color(0xFFF7FAFC);
   static const Color borderColor = Color(0xFFDEE2E7);

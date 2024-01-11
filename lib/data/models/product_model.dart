@@ -1,4 +1,5 @@
 class Product {
+  final int id;
   final String name;
   final double price;
   final double rating;
@@ -7,8 +8,16 @@ class Product {
   final String imageUrl;
   final String description;
   final bool isShippingFree;
+  final int totalReviews;
+  final int totalSold;
+  final int quentity;
+  final int itemNumber;
+  final String condition;
+  final String buildMaterial;
+  final String category;
 
   Product({
+    required this.id,
     required this.name,
     required this.price,
     required this.description,
@@ -17,18 +26,12 @@ class Product {
     required this.totalOrders,
     required this.isShippingFree,
     required this.imageUrl,
+    required this.totalReviews,
+    required this.totalSold,
+    required this.quentity,
+    required this.itemNumber,
+    required this.condition,
+    required this.buildMaterial,
+    required this.category,
   });
-
-  factory Product.fromJson(Map<String, dynamic> json) {
-    return Product(
-      name: json['name'],
-      price: json['price'],
-      description: json['description'],
-      rating: json['rating'],
-      discount: json['discount'],
-      totalOrders: json['order'],
-      imageUrl: json['image_url'],
-      isShippingFree: json['is_shipping_free'],
-    );
-  }
 }

@@ -98,7 +98,7 @@ class HomeScreen extends StatelessWidget {
                   const Icon(
                     Icons.arrow_forward,
                     color: AppColors.primary,
-                    size: AppStyle.smallIconSize,
+                    size: AppStyle.mediumIconSize,
                   )
                 ],
               ),
@@ -124,7 +124,7 @@ class HomeScreen extends StatelessWidget {
                   const Icon(
                     Icons.arrow_forward,
                     color: AppColors.primary,
-                    size: AppStyle.smallIconSize,
+                    size: AppStyle.mediumIconSize,
                   )
                 ],
               ),

@@ -19,7 +19,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: title,
       titleSpacing: 0,
       titleTextStyle: AppStyle.titleTextStyle,
-      actions: [
+      actions: !hideActions ? [
         IconButton(
           onPressed: () {},
           icon: const Icon(
@@ -37,7 +37,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
         ),
         const SizedBox(width: 8),
-      ],
+      ] : [],
     );
   }
 

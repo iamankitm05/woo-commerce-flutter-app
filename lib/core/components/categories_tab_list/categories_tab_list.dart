@@ -33,7 +33,7 @@ class CategoriesTabList extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const ItemsListScreen(),
+                      builder: (context) => const ProductsListScreen(),
                     ),
                   );
                 },

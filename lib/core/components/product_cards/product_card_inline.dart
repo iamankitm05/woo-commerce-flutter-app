@@ -4,14 +4,14 @@ class ProductCardInline extends StatelessWidget {
   final String productName;
   final double productPrice;
   final String productImageUrl;
-  final Widget? footer;
+  final List<Widget> footer;
 
   const ProductCardInline({
     super.key,
     required this.productName,
     required this.productPrice,
     required this.productImageUrl,
-    this.footer,
+    this.footer = const [],
   });
 
   @override
@@ -53,47 +53,12 @@ class ProductCardInline extends StatelessWidget {
                 ),
               ),
 
-              // if want to add extra data on 3rd line
-              if (footer != null) SizedBox(child: footer)
+              // Add extra data on here
+              ...footer
             ],
           )
         ],
       ),
     );
   }
-}
-
-
-// // Rate between 1-10
-//               ItemRating(
-//                 rating: rating ?? 0,
-//                 child: Row(
-//                   children: [
-//                     const SizedBox(width: 6),
-//                     const Icon(
-//                       Icons.circle,
-//                       size: 8,
-//                       color: Color(0xFFDEE2E7),
-//                     ),
-//                     const SizedBox(width: 4),
-//                     Text(
-//                       '$totalOrder orders',
-//                       style: const TextStyle(
-//                         color: Color(0xFF8B96A5),
-//                         fontSize: 13,
-//                         fontWeight: FontWeight.w400,
-//                       ),
-//                     ),
-//                   ],
-//                 ),
-//               ),
-
-//               if (freeShiping)
-//                 const Text(
-//                   'Free Shipping',
-//                   style: TextStyle(
-//                     color: Color(0xFF00B517),
-//                     fontSize: 13,
-//                     fontWeight: FontWeight.w400,
-//                   ),
-//                 ),
+}             
