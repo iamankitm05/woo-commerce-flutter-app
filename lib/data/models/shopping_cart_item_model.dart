@@ -19,7 +19,10 @@ class ShoppingCartItem {
   }
   
   void deccreaseQuentity() {
-    _quentity += 1;
+    if(_quentity <= 1) {
+      throw Exception('First add product before removing');
+    }
+    _quentity -= 1;
     _totalPrice = product.price * _quentity;
   }
 }

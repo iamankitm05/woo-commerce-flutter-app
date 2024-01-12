@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:woo_commerce/core/components/form_controls/custom_badge_button.dart';
 import 'package:woo_commerce/core/components/form_controls/custom_search.dart';
-import 'package:woo_commerce/data/dummy_products.dart';
+import 'package:woo_commerce/data/dummy_data/products.dart';
 import 'package:woo_commerce/presentation/dashboard/widgets/app_banner/app_banner.dart';
 import 'package:woo_commerce/core/components/categories_tab_list/categories_tab_list.dart';
 import 'package:woo_commerce/core/components/custom_app_bar/custom_app_bar.dart';
@@ -71,7 +71,7 @@ class HomeScreen extends StatelessWidget {
           ),
 
           // Deals and offers
-          ProductSection(
+          const ProductSection(
             title: 'Deals and offers',
             subTitle: 'Electronic equipments',
             products: dummyProducts,
@@ -185,11 +185,7 @@ class HomeScreen extends StatelessWidget {
               spacing: 8,
               runSpacing: 8,
               children: dummyProducts.map((product) {
-                return ProductCard(
-                  productName: product.name,
-                  productPrice: product.price,
-                  productImageUrl: product.imageUrl,
-                );
+                return ProductCard(product: product);
               }).toList(),
             ),
           ),

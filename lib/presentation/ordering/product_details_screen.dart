@@ -3,8 +3,8 @@ import 'package:woo_commerce/core/components/custom_app_bar/custom_app_bar.dart'
 import 'package:woo_commerce/core/components/custom_rating_star/custom_rating_star.dart';
 import 'package:woo_commerce/core/components/form_controls/buttons/primary_button.dart';
 import 'package:woo_commerce/core/components/product_cards/product_card.dart';
-import 'package:woo_commerce/data/dummy_products.dart';
-import 'package:woo_commerce/data/dummy_supplier.dart';
+import 'package:woo_commerce/data/dummy_data/products.dart';
+import 'package:woo_commerce/data/dummy_data/supplier.dart';
 import 'package:woo_commerce/data/models/product_model.dart';
 import 'package:woo_commerce/presentation/ordering/widgets/favorite_button/favorite_button.dart';
 import 'package:woo_commerce/presentation/ordering/widgets/product_details_table/product_details_table.dart';
@@ -202,10 +202,7 @@ class ProductDetailsScreen extends StatelessWidget {
                       ...dummyProducts
                           .map((product) => Padding(
                                 padding: const EdgeInsets.only(right: 8),
-                                child: ProductCard(
-                                  productName: product.name,
-                                  productPrice: product.price,
-                                  productImageUrl: product.imageUrl,
+                                child: ProductCard(product: product
                                 ),
                               ))
                           .toList()

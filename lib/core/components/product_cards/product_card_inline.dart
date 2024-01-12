@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:woo_commerce/data/models/product_model.dart';
 
 class ProductCardInline extends StatelessWidget {
-  final String productName;
-  final double productPrice;
-  final String productImageUrl;
+  final Product product;
   final List<Widget> footer;
 
   const ProductCardInline({
     super.key,
-    required this.productName,
-    required this.productPrice,
-    required this.productImageUrl,
     this.footer = const [],
+    required this.product,
   });
 
   @override
@@ -28,7 +25,7 @@ class ProductCardInline extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Image.network(
-            productImageUrl,
+            product.imageUrl,
             width: 98,
             height: 98,
           ),
@@ -37,7 +34,7 @@ class ProductCardInline extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                productName,
+                product.name,
                 style: const TextStyle(
                   color: Color(0xFF505050),
                   fontSize: 16,
@@ -45,7 +42,7 @@ class ProductCardInline extends StatelessWidget {
                 ),
               ),
               Text(
-                '\$$productPrice',
+                '\$${product.price}',
                 style: const TextStyle(
                   color: Color(0xFF333333),
                   fontSize: 16,
@@ -61,4 +58,4 @@ class ProductCardInline extends StatelessWidget {
       ),
     );
   }
-}             
+}

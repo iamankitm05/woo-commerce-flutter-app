@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:woo_commerce/data/models/product_model.dart';
 import 'package:woo_commerce/presentation/ordering/product_details_screen.dart';
 import 'package:woo_commerce/utils/constants/app_colors.dart';
 import 'package:woo_commerce/utils/constants/app_style.dart';
 
 class ProductCard extends StatelessWidget {
-  final String productName;
-  final double productPrice;
-  final String productImageUrl;
+  final Product product;
   final EdgeInsets margin;
 
   const ProductCard({
     super.key,
-    this.margin = EdgeInsets.zero,
-    required this.productName,
-    required this.productPrice,
-    required this.productImageUrl,
+    this.margin = EdgeInsets.zero, required this.product,
   });
 
   @override
@@ -41,7 +37,7 @@ class ProductCard extends StatelessWidget {
           children: [
             Center(
               child: Image.network(
-                productImageUrl,
+                product.imageUrl,
                 width: 152,
                 height: 152,
               ),
@@ -52,13 +48,13 @@ class ProductCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '\$$productPrice',
+                    '\$${product.price}',
                     style: AppStyle.baseTextStyle.copyWith(
                       fontWeight: FontWeight.w500,
                     ),
                   ),
                   Text(
-                    productName,
+                    product.name,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,
                     style: AppStyle.smallTextStyle.copyWith(

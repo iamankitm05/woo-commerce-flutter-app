@@ -6,7 +6,7 @@ import 'package:woo_commerce/core/components/categories_tab_list/categories_tab_
 import 'package:woo_commerce/core/components/custom_app_bar/custom_app_bar.dart';
 import 'package:woo_commerce/core/components/product_cards/product_card.dart';
 import 'package:woo_commerce/core/components/product_cards/product_card_inline.dart';
-import 'package:woo_commerce/data/dummy_products.dart';
+import 'package:woo_commerce/data/dummy_data/products.dart';
 import 'package:woo_commerce/data/models/product_model.dart';
 import 'package:woo_commerce/presentation/products_listing/widgets/custom_icon_button.dart';
 import 'package:woo_commerce/presentation/products_listing/widgets/tag_button.dart';
@@ -151,9 +151,7 @@ class ProductsListScreen extends StatelessWidget {
                     );
                   },
                   child: ProductCardInline(
-                    productName: product.name,
-                    productPrice: product.price,
-                    productImageUrl: product.imageUrl,
+                    product: product,
                     footer: [
                       const SizedBox(height: 7),
                       Row(
@@ -208,11 +206,7 @@ class ProductsListScreen extends StatelessWidget {
                         ...dummyProducts
                             .map((product) => Padding(
                                   padding: const EdgeInsets.only(right: 8),
-                                  child: ProductCard(
-                                    productName: product.name,
-                                    productPrice: product.price,
-                                    productImageUrl: product.imageUrl,
-                                  ),
+                                  child: ProductCard(product: product),
                                 ))
                             .toList()
                       ],
